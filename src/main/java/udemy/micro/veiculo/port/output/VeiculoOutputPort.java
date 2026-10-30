@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface VeiculoOutputPort {
     Optional<Veiculo> findVeiculoByChassi(String chassis);
     Veiculo save(Veiculo veiculo);
+    Veiculo deleteVeiculoByChassi(String chassi);
 }

@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 import udemy.micro.veiculo.domain.dtos.VeiculoRequest;
 import udemy.micro.veiculo.domain.dtos.VeiculoResponse;
+import udemy.micro.veiculo.domain.dtos.VeiculoUpdateRequest;
 import udemy.micro.veiculo.port.input.VeiculoInputPort;
 
 @RestController
@@ -23,5 +24,15 @@ public class VeiculoInputAdapter {
     @GetMapping("/search/{chassi}")
     public VeiculoResponse searchVeiculo(@PathVariable String chassi){
         return veiculoInputPort.searchVeiculo(chassi);
+    }
+
+    @PatchMapping("/update/{chassi}")
+    public VeiculoResponse updateVeiculo(@Valid @RequestBody VeiculoUpdateRequest dados, @PathVariable String chassi){
+        return veiculoInputPort.updateVeiculo(dados, chassi);
+    }
+
+    @DeleteMapping("/delete/{chassi}")
+    public VeiculoResponse deleteVeiculo(@PathVariable String chassi){
+        return veiculoInputPort.deleteVeiculo(chassi);
     }
 }

@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long>, VeiculoOutputPort {
     Optional<Veiculo> findVeiculoByChassi(String chassis);
     Veiculo save(Veiculo veiculo);
+    Veiculo deleteVeiculoByChassi(String chassi);
 }
