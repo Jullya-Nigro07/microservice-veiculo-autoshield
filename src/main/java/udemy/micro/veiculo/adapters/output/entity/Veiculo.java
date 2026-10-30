@@ -1,8 +1,11 @@
 package udemy.micro.veiculo.adapters.output.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import udemy.micro.veiculo.adapters.input.validation.AnoValido;
 
 @Entity
 @Data
@@ -25,6 +28,7 @@ public class Veiculo {
     private String modelo;
 
     @Column
+    @AnoValido
     private Integer ano;
 
     @Column
